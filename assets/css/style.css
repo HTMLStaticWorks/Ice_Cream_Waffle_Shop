@@ -1,0 +1,660 @@
+/* 
+=============================================================================
+Template Name: Ice Cream & Waffle Shop
+Author: Antigravity Template Studio
+Description: A premium HTML5 template for dessert shops
+============================================================================= 
+*/
+
+/* =========================================
+   1. CSS Variables & Theming
+========================================= */
+:root {
+  /* Brand Colors */
+  --primary-color: #FF4F87; /* Cherry Pink */
+  --primary-hover: #E63E73;
+  --secondary-color: #FFF4D8; /* Creamy Vanilla */
+  --accent-color: #5A3825; /* Chocolate Brown */
+  --highlight-color: #74D99F; /* Mint Green */
+  --bg-color: #FFFDFC; /* Soft White */
+  --text-color: #2B1F1A; /* Dark Chocolate */
+  --text-muted: #6C5A53;
+  
+  /* Additional UI Colors */
+  --white: #FFFFFF;
+  --black: #000000;
+  --border-color: rgba(90, 56, 37, 0.1);
+  --success: #28a745;
+  --warning: #ffc107;
+  --danger: #dc3545;
+
+  /* Typography */
+  --font-heading: 'Fredoka', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-accent: 'Pacifico', cursive;
+
+  /* UI Elements */
+  --border-radius-sm: 12px;
+  --border-radius: 24px;
+  --border-radius-lg: 40px;
+  --border-radius-pill: 50px;
+  
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(255, 79, 135, 0.08);
+  --shadow-hover: 0 15px 40px rgba(255, 79, 135, 0.15);
+  --shadow-dark: 0 10px 30px rgba(90, 56, 37, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-blur: blur(12px);
+}
+
+/* =========================================
+   2. Base & Reset
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+
+.accent-text {
+  font-family: var(--font-accent);
+  color: var(--primary-color);
+  font-weight: normal;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   3. Utility Classes
+========================================= */
+.section-padding {
+  padding: 80px 0;
+}
+
+@media (min-width: 992px) {
+  .section-padding {
+    padding: 120px 0;
+  }
+}
+
+.bg-vanilla { background-color: var(--secondary-color); }
+.bg-pink { background-color: var(--primary-color); }
+.bg-mint { background-color: var(--highlight-color); }
+
+.text-pink { color: var(--primary-color); }
+.text-brown { color: var(--accent-color); }
+.text-vanilla { color: var(--secondary-color); }
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--border-radius);
+}
+
+/* =========================================
+   4. Buttons
+========================================= */
+.btn-custom {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: var(--border-radius-pill);
+  text-align: center;
+  transition: all var(--transition-normal);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary-custom {
+  background-color: var(--primary-color);
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(255, 79, 135, 0.3);
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-hover);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 79, 135, 0.4);
+}
+
+.btn-secondary-custom {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+  box-shadow: 0 8px 20px rgba(90, 56, 37, 0.1);
+}
+
+.btn-secondary-custom:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(90, 56, 37, 0.15);
+}
+
+.btn-outline-custom {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 79, 135, 0.3);
+}
+
+/* =========================================
+   5. Header & Navigation
+========================================= */
+.site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all var(--transition-normal);
+    padding: 15px 0;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.site-header.scrolled {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  padding: 10px 0;
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-color) !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-brand img {
+  height: 40px;
+}
+
+.navbar-brand span {
+  color: var(--primary-color);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--accent-color) !important;
+  margin: 0 5px;
+  position: relative;
+  transition: color var(--transition-normal);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: all var(--transition-normal);
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.nav-link:hover::before, .nav-link.active::before {
+  width: 80%;
+}
+
+/* Mobile Toggle */
+.navbar-toggler {
+    background-color: var(--glass-bg, #FFF) !important;
+    backdrop-filter: var(--glass-blur, blur(10px)) !important;
+    -webkit-backdrop-filter: var(--glass-blur, blur(10px)) !important;
+    border: 1px solid rgba(255, 79, 135, 0.2) !important;
+}
+
+.navbar-toggler-icon {
+  width: 30px;
+  height: 24px;
+  position: relative;
+  background-image: none;
+}
+
+.navbar-toggler-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--accent-color);
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.navbar-toggler-icon span:nth-child(1) { top: 0px; }
+.navbar-toggler-icon span:nth-child(2) { top: 10px; }
+.navbar-toggler-icon span:nth-child(3) { top: 20px; }
+
+/* =========================================
+   6. Footer
+========================================= */
+.site-footer {
+  background-color: var(--secondary-color);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Footer Wave Shape */
+.footer-shape {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.footer-shape svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+}
+.footer-shape .shape-fill {
+  fill: var(--bg-color);
+}
+
+.footer-widget h4 {
+  color: var(--accent-color);
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  display: inline-block;
+  transition: all var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--white);
+  color: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-normal);
+}
+
+.footer-social a:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.newsletter-form .input-group {
+  background: var(--white);
+  border-radius: var(--border-radius-pill);
+  padding: 5px;
+  box-shadow: var(--shadow-soft);
+}
+
+.newsletter-form .form-control {
+  border: none;
+  background: transparent;
+  padding-left: 20px;
+  box-shadow: none;
+}
+
+.newsletter-form .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.newsletter-form .btn {
+  border-radius: var(--border-radius-pill);
+  padding: 10px 25px;
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  padding: 25px 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.footer-bottom-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-bottom-links a {
+  color: var(--text-muted);
+}
+
+.footer-bottom-links a:hover {
+  color: var(--primary-color);
+}
+
+/* =========================================
+   7. Animations
+========================================= */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating-element {
+  animation: float 4s ease-in-out infinite;
+}
+.floating-element-delay-1 {
+  animation: float 5s ease-in-out infinite 1s;
+}
+.floating-element-delay-2 {
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+/* Back to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-hover);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  z-index: 999;
+}
+
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-color);
+  color: var(--white);
+  transform: translateY(-5px);
+}
+
+/* =========================================
+   8. Hero Section
+========================================= */
+.hero-section {
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #FFF9EC 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Blobs */
+.hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    opacity: 0.6;
+}
+
+.hero-blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--primary-color);
+    top: -100px;
+    right: -100px;
+}
+
+.hero-blob-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--highlight-color);
+    bottom: -50px;
+    left: -50px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-main-img {
+    position: relative;
+    z-index: 2;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-dark);
+}
+
+.hero-floating-item {
+    position: absolute;
+    z-index: 3;
+    background: var(--white);
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: var(--shadow-hover);
+}
+
+.floating-1 { top: 10%; left: -20px; width: 80px; }
+.floating-2 { bottom: 20%; right: -30px; width: 100px; }
+.floating-3 { top: -20px; right: 20%; width: 70px; }
+
+
+:root {
+    --hero-overlay-1: rgba(255,249,236,0.8);
+    --hero-overlay-2: rgba(255,249,236,0.9);
+}
+
+
+
+/* Mobile Menu Glass Background */
+
+
+
+/* Global paragraph size uniformity */
+p:not(.small) {
+    font-size: 1rem !important;
+}
+
+/* Hamburger menu background at very top */
+.navbar-toggler {
+    background-color: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(255, 79, 135, 0.2);
+}
+
+
+/* Mobile Menu Glass Background & Positioning */
+
+
+
+
+
+
+/* Robust Mobile Menu Positioning & Alignment */
+@media (max-width: 1199.98px) {
+  /* Force the collapse completely out of flow to prevent pushing hero down */
+  .navbar-collapse, .navbar-collapse.collapsing, .navbar-collapse.show {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: #FFFDFC !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    padding: 1rem !important;
+    z-index: 1050 !important;
+    text-align: center !important;
+    border-radius: 0 0 1rem 1rem !important;
+  }
+  
+  /* Ensure children of navbar-nav are perfectly centered */
+  .navbar-collapse .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .navbar-collapse .nav-link {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 0 !important;
+  }
+
+  /* Center the toggle buttons and icons inside the hamburger */
+  .navbar-collapse .d-flex {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    margin-top: 15px !important;
+    width: 100% !important;
+  }
+  .navbar-collapse .d-flex button {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .navbar-collapse .d-flex a.btn-primary-custom {
+    width: 100% !important;
+    margin-top: 15px !important;
+  }
+}

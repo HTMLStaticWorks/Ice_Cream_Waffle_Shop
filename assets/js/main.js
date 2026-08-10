@@ -28,31 +28,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
     
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        if (header) {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
     });
 
     // 2. Back to Top Button
     const backToTop = document.getElementById('backToTop');
     
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('active');
-        } else {
-            backToTop.classList.remove('active');
-        }
-    });
-
-    backToTop.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
         });
-    });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
     // 3. Dark Mode Toggle
     const themeToggle = document.getElementById('theme-toggle');
@@ -67,19 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        
-        let theme = 'light-theme';
-        if (body.classList.contains('dark-theme')) {
-            theme = 'dark-theme';
-            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        } else {
-            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        }
-        
-        localStorage.setItem('theme', theme);
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            let theme = 'light-theme';
+            if (body.classList.contains('dark-theme')) {
+                theme = 'dark-theme';
+                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+            
+            localStorage.setItem('theme', theme);
+        });
+    }
 
     // 4. RTL Toggle
     const rtlToggle = document.getElementById('rtl-toggle');

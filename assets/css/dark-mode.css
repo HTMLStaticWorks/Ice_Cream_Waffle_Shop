@@ -61,6 +61,10 @@ body.dark-theme {
     --hero-overlay-2: rgba(26,18,14,0.95);
 }
 
+body.dark-theme .hero-content-box {
+    background: rgba(0, 0, 0, 0.65);
+}
+
 
 body.dark-theme .text-muted {
     color: var(--text-muted) !important;
